@@ -7,7 +7,7 @@ const recipeSchema = new Schema ({
     source: String,
     description: String, 
     ingredients: [String],
-    method: String,
+    method: [String],
     tips: String
 })
 
