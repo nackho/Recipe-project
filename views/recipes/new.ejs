@@ -1,17 +1,41 @@
 <%- include('../partials/header') %>
-    <form id="new-recipe" action="/recipes" method="POST">
-        <label>Title:</label>
-        <input type="text" name="title">
-        <label>Source:</label>
-        <input type="text" name="source">
-        <label>Description</label>
-        <input type="text" name="description">
-        <label>Ingredients:</label>
-        <input type="text" name="ingredients">
-        <label>Method:</label>
-        <input type="text" name="method">
-        <label>Tips:</label>
-        <input type="text" name="tips">
+<div id="recipe-format">
+    <form action="/recipes" method="POST">
+        <div class="recipe-img">
+            <label>Image</label>
+            <input type="file" name="image" accept="image/*" class="recipe-format">
+        </div>
+        <div class="single-line">
+            <label>Title:</label>
+            <input type="text" name="title" id="title" class="recipe-format">
+        </div>
+
+        <div class="multi-line">
+            <label>Description</label>
+            <textarea name="description" id="description" cols="50" rows="4" class="recipe-format"></textarea>
+        </div>
+
+        <div>
+            <label>Ingredients:</label>
+            <input type="text" name="ingredients" class="recipe-format">
+        </div>
+        
+        <div>
+            <button type="button" class="ingredient-button" id="addIngredientBtn">Add ingredient</button>
+        </div>
+
+        <div>
+            <label>Method:</label>
+            <input type="text" name="method" id="method" class="recipe-format">
+        </div>
+        
+        <div>
+            <button type="button" class="method-button" id="addMethodBtn">Add Method</button>
+        </div>
+
+        <br><br>
+
         <input type="submit" value="Add Recipe">
     </form>
+</div>
 <%- include('../partials/footer') %>
