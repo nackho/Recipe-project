@@ -3,39 +3,49 @@
     <form action="/recipes" method="POST">
         <div class="recipe-img">
             <label>Image</label>
-            <input type="file" name="image" accept="image/*" class="recipe-format">
+            <input type="file" name="image" accept="image/*">
         </div>
-        <div class="single-line">
+
+        <div class ="recipe-text">
             <label>Title:</label>
-            <input type="text" name="title" id="title" class="recipe-format">
+            <input type="text" name="title" id="title">
         </div>
 
-        <div class="multi-line">
+        <div class ="recipe-text">
             <label>Description</label>
-            <textarea name="description" id="description" cols="50" rows="4" class="recipe-format"></textarea>
+            <textarea name="description" id="description" cols="50"></textarea>
         </div>
 
-        <div>
+        <div class ="recipe-text">
             <label>Ingredients:</label>
-            <input type="text" name="ingredients" class="recipe-format">
+                <div id="ingredientItem">
+                    <input type="text" name="ingredients" placeholder="2 shots of vodka..">
+                    <button id="removeIngredientBtn">X</button>
+                </div>
+            </div>
         </div>
         
         <div>
-            <button type="button" class="ingredient-button" id="addIngredientBtn">Add ingredient</button>
+            <button type="button" class="ingredient-button" id="addIngredientBtn">+ Ingredient</button>
+        </div>
+
+        <div class ="recipe-text">
+            <label>Method:</label>
+                <div id="methodItem">
+                    <input type="text" name="method" placeholder="First, you..."">
+                    <button id="removeMethodBtn">X</button>
+                </div>
+            </div>    
         </div>
 
         <div>
-            <label>Method:</label>
-            <input type="text" name="method" id="method" class="recipe-format">
-        </div>
-        
-        <div>
-            <button type="button" class="method-button" id="addMethodBtn">Add Method</button>
-        </div>
+            <button type="button" class="method-button" id="addMethodBtn">+ Method</button>
+        </div> 
 
         <br><br>
 
         <input type="submit" value="Add Recipe">
     </form>
 </div>
+<script src="/javascripts/script.js"></script>
 <%- include('../partials/footer') %>
