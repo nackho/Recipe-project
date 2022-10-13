@@ -1,3 +1,4 @@
+//Add/Remove Ingredients + Button
 const recipeIngredient = document.getElementById("ingredientItem");
 let addIngredientBtn = document.getElementById("addIngredientBtn");
 let removeIngredientBtn = document.getElementById("removeIngredientBtn");
@@ -19,7 +20,7 @@ function removeIngredient() {
 addIngredientBtn.addEventListener("click", addIngredient);
 removeIngredientBtn.addEventListener("click", removeIngredient)
 
-
+//Add/Remove Methods + Button
 const recipeMethod = document.getElementById("methodItem");
 let addMethodBtn = document.getElementById("addMethodBtn");
 let removeMethodBtn = document.getElementById("removeMethodBtn");

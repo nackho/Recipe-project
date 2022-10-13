@@ -1,9 +1,10 @@
 var express = require('express');
 var router = express.Router();
 const passport = require("passport")
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Index' });
+  res.render('index', { title: "Nack's Recipe Book" });
 });
 
 //Google OAuth login route

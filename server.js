@@ -1,5 +1,6 @@
 var createError = require('http-errors');
 var express = require('express');
+const expressLayouts = require("express-ejs-layouts");
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -24,7 +25,7 @@ app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(session({
   secret: process.env.SECRET,
@@ -34,6 +35,9 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(expressLayouts);
+
+app.set("layout", "./layouts/main")
 
 app.use(function(req, res, next) {
   res.locals.user = req.user
