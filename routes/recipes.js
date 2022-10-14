@@ -1,10 +1,13 @@
 const express = require("express");
 const router = express.Router();
 const recipesCtrl = require("../controllers/recipes");
+const isLoggedIn = require("../config/auth");
 
-router.get("/", recipesCtrl.index);
-router.get("/new", recipesCtrl.new);
+router.get("/", isLoggedIn, recipesCtrl.index);
+router.get("/new", isLoggedIn, recipesCtrl.new);
 router.post("/", recipesCtrl.create);
-router.get("/:id", recipesCtrl.show);
+router.get("/:id", isLoggedIn, recipesCtrl.show);
+router.get("/:id/edit", isLoggedIn, recipesCtrl.edit)
+router.put("/:id", recipesCtrl.update)
 
 module.exports = router;

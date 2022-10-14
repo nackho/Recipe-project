@@ -5,6 +5,8 @@ module.exports = {
     new: newRecipe,
     create,
     show,
+    edit,
+    update,
 };
 
 function index(req, res) {
@@ -39,7 +41,7 @@ function create(req, res) {
         title: req.body.title,
         description: req.body.description,
         ingredients: req.body.ingredients,
-        method: req.body. method
+        method: req.body.method
     });
     recipe.save(function(err) {
         if (err) return res.redirect("/recipes/new");
@@ -50,5 +52,17 @@ function create(req, res) {
 function show(req,res) {
     Recipe.findById(req.params.id, function(err, recipe) {
         res.render("recipes/show", { title: "Recipe", recipe })
+    })
+}
+
+function edit(req, res) {
+    Recipe.findById({_id: req.params.id}, req.body, function(err, recipe) {
+        res.render("recipes/edit", { title: "Recipe", recipe })
+    })
+}
+
+function update(req, res) {
+    Recipe.findByIdAndUpdate({ _id: req.params._id }, req.body, { new: true}, (err, recipe) => {
+    res.redirect(`/recipes/${req.params.id}`)
     })
 }
