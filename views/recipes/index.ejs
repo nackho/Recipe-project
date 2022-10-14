@@ -1,2 +1,19 @@
-<!-- <%- include('../partials/header') %>
-<%- include('../partials/footer') %> -->
+<div class="d-flex mb-2 align-items-center">
+    <h2>All Recipes</h2>
+    <a href="/" class="ms-auto">Go Back</a>
+</div>
+
+<div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+
+    <% if(food != '') { %>
+        <% food.forEach(function(recipe, index){ %>
+    <a href="/recipe/<%= recipe._id %>" class="col text-center recipe__tab">
+        <div class="recipe__img_all shadow">
+            <img src="/images/<%= recipe._image %>">
+        </div>
+        <div class="pt-1"><%= recipe._name %></div>
+    </a>
+    <% }) %>
+        <% } %>
+
+</div>
