@@ -10,6 +10,7 @@ Screen Shots:
 <img width="880" alt="image" src="https://user-images.githubusercontent.com/112008149/195816752-a6eb3958-037c-4fee-99e5-c6b7dc57309f.png">
 
 Technologies Used:
+```
 CSS
 HTML
 Javascript
@@ -18,14 +19,19 @@ Mongoose
 Express
 Node.js
 love
+```
+Getting Started: 
 
-Getting Started: https://recipe-project.onrender.com/
+https://recipe-project.onrender.com/
+
 Your google account is required to access most of the page. After authenticating, you will find that you can add recipes, add reviews, and see more recipes.
 
 Next Steps:
--Search Bar
--Categorization
--More Recipes
--Animated Styling
--Random Recipes
--Filterable Recipes
+```
+Search Bar
+Categorization
+More Recipes
+Animated Styling
+Random Recipes
+Filterable Recipes
+```
