@@ -8,4 +8,37 @@ body {
   --bs-font-sans-serif: "Comic Neue", sans-serif;
 }
 
+a { 
+  color: var(--bs-dark); 
+  text-decoration: 0;
+  font-weight: bold;
+}
+
 .container-xxl {max-width: 1600px };
+
+.recipe__tab {
+  text-align: center;
+  display: block;
+  text-decoration: none;
+  transition: 250ms all;
+}
+
+.recipe__tab:hover {
+  transform:scale(1.1);
+}
+
+.recipe__img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  margin-bottom: 15px;
+  box-shadow: 0px 4px 6px rgba(0,0,0,.16);
+  overflow: hidden;
+  border-radius: 10px
+}
+
+.recipe__img img {
+  width: 100%;
+  object-fit: cover;
+}

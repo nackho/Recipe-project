@@ -1,11 +1,17 @@
 var express = require('express');
 var router = express.Router();
 const passport = require("passport")
+const Recipe = require("../models/recipe");
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: "Nack's Recipe Book" });
-});
+router.get('/', async function(req, res, next) {
+  const limitRecipe = 5;
+  const latest = await Recipe.find({}).sort({_id: -1}).limit(limitRecipe); 
+  const food = { latest }; 
+    res.render('index', { title: "Nack's Recipe Book", food });
+  })
+    
+
 
 //Google OAuth login route
 router.get("/auth/google", passport.authenticate("google", {

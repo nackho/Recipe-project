@@ -8,11 +8,14 @@ module.exports = {
 };
 
 function index(req, res) {
-    Recipe.find({}, function(err, recipes) {
-        res.render("recipes/index", {title: "All Recipes", recipes})
+    Recipe.find({}, function(err, food){
+        res.render('recipes/index', {
+            title: 'All Recipes',
+            food
+        })
     })
 }
-
+        
 function newRecipe(req, res) {
     res.render("recipes/new", {title: "New Recipe"})
 }
@@ -24,8 +27,3 @@ function create(req, res) {
         res.redirect("/recipes");
     })
 }
-
-// function show (req, res) {
-//     Recipe.findById(req.params.id)
-
-// }
