@@ -56,13 +56,18 @@ function show(req,res) {
 }
 
 function edit(req, res) {
-    Recipe.findById({_id: req.params.id}, req.body, function(err, recipe) {
+    Recipe.findById({_id: req.params.id}, function(err, recipe) {
         res.render("recipes/edit", { title: "Recipe", recipe })
     })
 }
 
 function update(req, res) {
-    Recipe.findByIdAndUpdate({ _id: req.params._id }, req.body, { new: true}, (err, recipe) => {
-    res.redirect(`/recipes/${req.params.id}`)
+    Recipe.findById(req.params.id, (err, recipe) => {
+    req.body.new = true
+    recipe = req.body
+    recipe.save(function (err) {
+        res.redirect(`/recipes/${req.params.id}`)
+        }) 
     })
 }
+
