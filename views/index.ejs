@@ -9,6 +9,8 @@
         </h1>
         <p class="lead">
             Here you will find my own unoriginal recipes that I have copied from all over the interweb! 
+
+            But I made them, so they are better than the original.
         </p>
     </div>
 </div>
@@ -25,7 +27,7 @@
             <% recipes.newAdd.forEach(function(recipe, index){ %>
         <a href="/recipes/<%= recipe._id %>" class="col text-center recipe__tab">
             <div class="recipe__img shadow">
-                <img src="/uploads/<%- recipe.image %>">
+                <img src="/uploads/<%- recipe.image %>" height="300">
             </div>
             <div class="pt-1"><%= recipe.title %></div>
         </a>

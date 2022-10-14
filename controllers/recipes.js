@@ -7,7 +7,7 @@ module.exports = {
     show,
     edit,
     update,
-    delete: deleteRecipe,
+
 };
 
 function index(req, res) {
@@ -63,22 +63,12 @@ function edit(req, res) {
 }
 
 function update(req, res) {
-    Recipe.findById(req.params.id, (err, recipe) => {
-    req.body.new = true
-    recipe = req.body
-    recipe.save(function (err) {
+    Recipe.findById(req.params.id, (err, recipe)=>
+    { req.body.new = true; recipe = req.body; recipe.save();
         res.redirect(`/recipes/${req.params.id}`)
         }) 
-    })
-}
+    }
 
-function deleteRecipe(req, res, next) {
-    Recipe.findOne(req.params.id).then(function(recipe) {
-      recipe.remove(req.params.id);
-      recipe.save().then(function() {
-        res.redirect(`/recipes/${recipe._id}`);
-      }).catch(function(err) {
-        return next(err);
-      });
-    });
-  }
+
+    
+  
