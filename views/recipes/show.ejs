@@ -1,1 +1,36 @@
-<h1>test</h1>
+<div class="row">
+
+    <div class="col-12 col-md 4">
+        <img src="/uploads/<%- recipe.image %>" class="img-fluid sticky-top" style="top: 20px">
+    </div>
+
+    <div class="col-12 col-md-8">
+        <div class="row">
+            <div class="col-12"><h1><strong><%= recipe.title %></h1></strong></div>
+            <div class="col-12 mb-4"></div>
+            <div class="col-12">
+                <h3>Method:</h3>
+                <ol class="list-group list-group-numbered list-group-flush ">
+                    <% recipe.method.forEach(function(method, index){ %>
+                        <li class="list-group-item">
+                            <%= method %>
+                        </li>
+                    <% }) %>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="row pt-4">
+            <div class="col-12">
+                <h3>Ingredients:</h3>
+                <ul class="list-group list-group-flush">
+                    <% recipe.ingredients.forEach(function(ingredients, index){ %>
+                        <li class="list-group-item">
+                            <%= ingredients %>
+                        </li>
+                    <% }) %>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
