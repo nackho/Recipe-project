@@ -7,6 +7,7 @@ module.exports = {
     show,
     edit,
     update,
+    delete: deleteRecipe,
 };
 
 function index(req, res) {
@@ -71,3 +72,13 @@ function update(req, res) {
     })
 }
 
+function deleteRecipe(req, res, next) {
+    Recipe.findOne(req.params.id).then(function(recipe) {
+      recipe.remove(req.params.id);
+      recipe.save().then(function() {
+        res.redirect(`/recipes/${recipe._id}`);
+      }).catch(function(err) {
+        return next(err);
+      });
+    });
+  }

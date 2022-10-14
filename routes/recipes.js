@@ -9,5 +9,6 @@ router.post("/", recipesCtrl.create);
 router.get("/:id", isLoggedIn, recipesCtrl.show);
 router.get("/:id/edit", isLoggedIn, recipesCtrl.edit)
 router.put("/:id", recipesCtrl.update)
+router.delete("/:id", recipesCtrl.delete)
 
 module.exports = router;
