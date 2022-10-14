@@ -19,7 +19,7 @@ Express
 Node.js
 love
 
-Getting Started:
+Getting Started: https://recipe-project.onrender.com/
 Your google account is required to access most of the page. After authenticating, you will find that you can add recipes, add reviews, and see more recipes.
 
 Next Steps:
