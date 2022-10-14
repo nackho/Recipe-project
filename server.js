@@ -4,6 +4,7 @@ const expressLayouts = require("express-ejs-layouts");
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const methodOverride = require("method-override")
 const fileUpload = require("express-fileUpload");
 const session = require("express-session");
 const passport = require("passport");
@@ -15,6 +16,7 @@ require("./config/passport");
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+const reviewsRouter = require("./routes/reviews")
 const recipesRouter = require("./routes/recipes");
 const { appendFileSync } = require('fs');
 
@@ -38,6 +40,7 @@ app.use(fileUpload());
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(methodOverride("_method"));
 app.use(expressLayouts);
 
 app.set("layout", "./layouts/main")
@@ -49,6 +52,7 @@ app.use(function(req, res, next) {
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use("/", reviewsRouter)
 app.use("/recipes", recipesRouter);
 
 // catch 404 and forward to error handler
