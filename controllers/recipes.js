@@ -21,7 +21,26 @@ function newRecipe(req, res) {
 }
 
 function create(req, res) {
-    const recipe = new Recipe(req.body);
+
+    let imageUploadFile;
+    let uploadPath;
+    let newImageName;
+      imageUploadFile = req.files.image;
+      newImageName = Date.now() + imageUploadFile.name;
+
+      uploadPath = require('path').resolve('./') + '/public/uploads/' + newImageName;
+
+      imageUploadFile.mv(uploadPath, function(err){
+        if(err) return res.satus(500).send(err);
+      })
+
+    const recipe = new Recipe({
+        image: newImageName,
+        title: req.body.title,
+        description: req.body.description,
+        ingredients: req.body.ingredients,
+        method: req.body. method
+    });
     recipe.save(function(err) {
         if (err) return res.redirect("/recipes/new");
         res.redirect("/recipes");
