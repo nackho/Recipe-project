@@ -5,6 +5,6 @@ const recipesCtrl = require("../controllers/recipes");
 router.get("/", recipesCtrl.index);
 router.get("/new", recipesCtrl.new);
 router.post("/", recipesCtrl.create);
-// router.get("/:id". recipesCtrl.show)
+router.get("/:id", recipesCtrl.show);
 
 module.exports = router;

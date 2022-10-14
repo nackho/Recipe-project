@@ -5,9 +5,9 @@
 
 <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
 
-    <% if(food != '') { %>
-        <% food.forEach(function(recipe, index){ %>
-    <a href="/recipe/<%= recipe._id %>" class="col text-center recipe__tab">
+    <% if(recipes != '') { %>
+        <% recipes.forEach(function(recipe, index){ %>
+    <a href="/recipes/<%= recipe._id %>" class="col text-center recipe__tab">
         <div class="recipe__img_all shadow">
             <img src="/images/<%= recipe._image %>">
         </div>

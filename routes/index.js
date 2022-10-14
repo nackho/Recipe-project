@@ -6,9 +6,9 @@ const Recipe = require("../models/recipe");
 /* GET home page. */
 router.get('/', async function(req, res, next) {
   const limitRecipe = 5;
-  const latest = await Recipe.find({}).sort({_id: -1}).limit(limitRecipe); 
-  const food = { latest }; 
-    res.render('index', { title: "Nack's Recipe Book", food });
+  const newAdd = await Recipe.find({}).sort({_id: -1}).limit(limitRecipe); 
+  const recipes = { newAdd }; 
+    res.render('index', { title: "Nack's Recipe Book", recipes });
   })
     
 

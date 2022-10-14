@@ -4,14 +4,14 @@ module.exports = {
     index,
     new: newRecipe,
     create,
-    // show,
+    show,
 };
 
 function index(req, res) {
-    Recipe.find({}, function(err, food){
+    Recipe.find({}, function(err, recipes){
         res.render('recipes/index', {
             title: 'All Recipes',
-            food
+            recipes
         })
     })
 }
@@ -25,5 +25,11 @@ function create(req, res) {
     recipe.save(function(err) {
         if (err) return res.redirect("/recipes/new");
         res.redirect("/recipes");
+    })
+}
+
+function show(req,res) {
+    Recipe.findById(req.params.id, function(err, recipes) {
+        res.render("recipes/show", { title: "test", recipes })
     })
 }
