@@ -4,9 +4,10 @@ const expressLayouts = require("express-ejs-layouts");
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+const fileUpload = require("express-fileUpload");
 const session = require("express-session");
-const passport = require("passport")
+const passport = require("passport");
+const flash = require("connect-flash");
 
 require("dotenv").config();
 require("./config/database");
@@ -32,6 +33,8 @@ app.use(session({
   resave: false,
   saveUninitialized: true
 }));
+app.use(flash());
+app.use(fileUpload());
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
